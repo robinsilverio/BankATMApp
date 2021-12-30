@@ -2,16 +2,18 @@
 {
     public class SavingAccount : Account
     {
-        private int accountNumber;
-
-        public SavingAccount(int paramAccountNumber, string ownedBy) : base("SAVING", ownedBy)
+        public SavingAccount(int paramAccountNumber, string ownedBy) : base(paramAccountNumber, "SAVING", ownedBy)
         {
-            this.accountNumber = paramAccountNumber;
         }
 
         public override void Credit(int paramAmount)
         {
             base.Funds += paramAmount;
+        }
+
+        public override void Debit(int paramAmount)
+        {
+            base.Funds -= paramAmount;
         }
     }
 }

@@ -25,5 +25,10 @@
         {
             return this.accounts;
         }
+
+        public bool IsAccessGranted(int paramPIN)
+        {
+            return this.registeredPIN == paramPIN;
+        }
     }
 }

@@ -6,9 +6,9 @@ namespace UnittestsProjectBankATM
     [TestClass]
     public class BankTests
     {
-        public Bank testSubjectBank;
+        private Bank testSubjectBank;
 
-        public void ArrangeBank()
+        private void ArrangeBank()
         {
             this.testSubjectBank = new Bank(0001, "ING", "Private");
         }

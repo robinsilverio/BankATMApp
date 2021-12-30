@@ -12,7 +12,7 @@ namespace UnittestsProjectBankATM
         private void ArrangeBankAndCustomer()
         {
             Bank testSubjectBank = new Bank(0001, "ING", "Private");
-            this.testSubjectCustomer = new Customer(0001, "Robin Medeiros Silverio", "Teststraat 123", "00/00/00", testSubjectBank);
+            this.testSubjectCustomer = new Customer(0001, "Robin Medeiros Silvério", "Teststraat 123", "00/00/00", testSubjectBank);
         }
 
         [TestMethod]
