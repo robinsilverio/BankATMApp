@@ -17,9 +17,9 @@
             return maintainedBy.ManagesDebitCard().Find(debitCard => debitCard.OwnedBy == v);
         }
 
-        public bool verifyPIN(DebitCard paramDebitCard, int paramPIN)
+        public List<Account> VerifyPIN(DebitCard paramDebitCard, int paramPIN)
         {
-            return paramDebitCard.IsAccessGranted(paramPIN);
+            return paramDebitCard.Access(paramPIN);
         }
     }
 }

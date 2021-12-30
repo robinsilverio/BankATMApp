@@ -8,7 +8,6 @@
         private List<Account> accounts;
 
         public string OwnedBy { get { return ownedBy; } set { ownedBy = value; } }
-
         public DebitCard(int cardId, string ownedBy, int paramPin)
         {
             this.cardId = cardId;
@@ -21,14 +20,9 @@
             };
         }
 
-        public List<Account> Access()
+        public List<Account> Access(int paramPIN)
         {
-            return this.accounts;
-        }
-
-        public bool IsAccessGranted(int paramPIN)
-        {
-            return this.registeredPIN == paramPIN;
+            return (this.registeredPIN == paramPIN) ? this.accounts : new List<Account>();
         }
     }
 }

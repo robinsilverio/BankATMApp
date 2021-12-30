@@ -10,18 +10,24 @@ namespace UnittestsProjectBankATM
     {
         private ATM testSubjectATM;
         private DebitCard testSubjectDebitCard;
-        private bool isAccessGranted;
+        private List<Account> expectedAccountsAfterVerification;
+        private List<Account> ActualAccountsAfterVerification;
 
         private void ArrangeBankATMAndDebitCardTestSubjects()
         {
             Bank testSubjectBank = new Bank(0001, "ING", "Private");
             testSubjectATM = new ATM(0001, "Amsterdam - Centraal Station", testSubjectBank);
             testSubjectDebitCard = new DebitCard(0001, "Robin Medeiros Silvério", 1234);
+            expectedAccountsAfterVerification = new List<Account>
+            {
+                new SavingAccount(0001, testSubjectDebitCard.OwnedBy),
+                new RegularAccount(0001, testSubjectDebitCard.OwnedBy)
+            };
         }
 
         private void ActGrantAccessWithPIN(int paramPIN)
         {
-            isAccessGranted = testSubjectATM.verifyPIN(testSubjectDebitCard, paramPIN);
+            ActualAccountsAfterVerification = testSubjectATM.VerifyPIN(testSubjectDebitCard, paramPIN);
         }
 
         [TestMethod]
@@ -41,7 +47,7 @@ namespace UnittestsProjectBankATM
 
             ActGrantAccessWithPIN(1234);
 
-            Assert.AreEqual(true, isAccessGranted);
+            Assert.AreEqual(expectedAccountsAfterVerification.Count, ActualAccountsAfterVerification.Count);
 
         }
 
@@ -52,7 +58,7 @@ namespace UnittestsProjectBankATM
 
             ActGrantAccessWithPIN(5555);
 
-            Assert.AreEqual(false, isAccessGranted);
+            Assert.AreEqual(0, ActualAccountsAfterVerification.Count);
         }
         
     }
