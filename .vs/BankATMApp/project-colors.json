@@ -1,0 +1,21 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "cab85ba6-6b5e-4223-887c-a621d25a20da": {
+      "ProjectGuid": "cab85ba6-6b5e-4223-887c-a621d25a20da",
+      "DisplayName": "BankATMApp",
+      "ColorIndex": 0
+    },
+    "25d82ff0-9811-401e-89fd-7dfa777b6dbb": {
+      "ProjectGuid": "25d82ff0-9811-401e-89fd-7dfa777b6dbb",
+      "DisplayName": "UnitTestProjectBankATM",
+      "ColorIndex": 1
+    },
+    "19e798e9-47d5-453e-ae99-dc2210e5ddad": {
+      "ProjectGuid": "19e798e9-47d5-453e-ae99-dc2210e5ddad",
+      "DisplayName": "UnittestsProjectBankATM",
+      "ColorIndex": 2
+    }
+  },
+  "NextColorIndex": 3
+}

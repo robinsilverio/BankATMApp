@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.32014.148
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BankATMApp", "BankATMApp\BankATMApp.csproj", "{CAB85BA6-6B5E-4223-887C-A621D25A20DA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnittestsProjectBankATM", "UnittestsProjectBankATM\UnittestsProjectBankATM.csproj", "{19E798E9-47D5-453E-AE99-DC2210E5DDAD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CAB85BA6-6B5E-4223-887C-A621D25A20DA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CAB85BA6-6B5E-4223-887C-A621D25A20DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CAB85BA6-6B5E-4223-887C-A621D25A20DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CAB85BA6-6B5E-4223-887C-A621D25A20DA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{19E798E9-47D5-453E-AE99-DC2210E5DDAD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{19E798E9-47D5-453E-AE99-DC2210E5DDAD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{19E798E9-47D5-453E-AE99-DC2210E5DDAD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{19E798E9-47D5-453E-AE99-DC2210E5DDAD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {076E4450-6D4A-497E-A1AC-9AC4D8458593}
+	EndGlobalSection
+EndGlobal
