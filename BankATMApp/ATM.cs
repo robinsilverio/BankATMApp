@@ -5,6 +5,7 @@
         private int id;
         private string location;
         private Bank maintainedBy;
+        public DebitCard? obtainedDebitCard;
 
         public ATM(int paramId, string paramLocation, Bank paramMaintainedBy)
         {
@@ -12,14 +13,15 @@
             this.location = paramLocation;
             this.maintainedBy = paramMaintainedBy;
         }
-        public DebitCard? InsertCard(string v)
+        public void InsertCard(string v)
         {
-            return maintainedBy.ManagesDebitCard().Find(debitCard => debitCard.OwnedBy == v);
+            this.obtainedDebitCard = maintainedBy.ManagesDebitCard().Find(debitCard => debitCard.OwnedBy == v);
         }
 
-        public List<Account> VerifyPIN(DebitCard paramDebitCard, int paramPIN)
+        public bool VerifyPIN(int paramPIN)
         {
-            return paramDebitCard.Access(paramPIN);
+            return this.obtainedDebitCard.Access(paramPIN);
         }
+
     }
 }

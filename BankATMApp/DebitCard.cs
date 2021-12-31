@@ -20,9 +20,9 @@
             };
         }
 
-        public List<Account> Access(int paramPIN)
+        public bool Access(int paramPIN)
         {
-            return (this.registeredPIN == paramPIN) ? this.accounts : new List<Account>();
+            return this.registeredPIN == paramPIN;
         }
     }
 }

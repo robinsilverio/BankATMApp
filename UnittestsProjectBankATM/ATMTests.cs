@@ -9,35 +9,16 @@ namespace UnittestsProjectBankATM
     public class ATMTests
     {
         private ATM testSubjectATM;
-        private DebitCard testSubjectDebitCard;
-        private List<Account> expectedAccountsAfterVerification;
-        private List<Account> ActualAccountsAfterVerification;
 
         private void ArrangeBankATMAndDebitCardTestSubjects()
         {
             Bank testSubjectBank = new Bank(0001, "ING", "Private");
             testSubjectATM = new ATM(0001, "Amsterdam - Centraal Station", testSubjectBank);
-            testSubjectDebitCard = new DebitCard(0001, "Robin Medeiros Silvério", 1234);
-            expectedAccountsAfterVerification = new List<Account>
-            {
-                new SavingAccount(0001, testSubjectDebitCard.OwnedBy),
-                new RegularAccount(0001, testSubjectDebitCard.OwnedBy)
-            };
         }
 
-        private void ActGrantAccessWithPIN(int paramPIN)
+        private bool ActGrantAccessWithPIN(int paramPIN)
         {
-            ActualAccountsAfterVerification = testSubjectATM.VerifyPIN(testSubjectDebitCard, paramPIN);
-        }
-
-        [TestMethod]
-        public void Should_ReturnTrue_When_ObtainingDebitCardAfterInserting()
-        {
-            ArrangeBankATMAndDebitCardTestSubjects();
-            
-            DebitCard? actualDebitCard = testSubjectATM.InsertCard("Robin Medeiros Silvério");
-
-            Assert.AreEqual(testSubjectDebitCard.OwnedBy, actualDebitCard.OwnedBy);
+            return testSubjectATM.VerifyPIN(paramPIN);
         }
 
         [TestMethod]
@@ -45,10 +26,11 @@ namespace UnittestsProjectBankATM
         {
             ArrangeBankATMAndDebitCardTestSubjects();
 
-            ActGrantAccessWithPIN(1234);
+            testSubjectATM.InsertCard("Robin Medeiros Silvério");
 
-            Assert.AreEqual(expectedAccountsAfterVerification.Count, ActualAccountsAfterVerification.Count);
+            bool actAccess = ActGrantAccessWithPIN(0215);
 
+            Assert.AreEqual(true, actAccess);
         }
 
         [TestMethod]
@@ -56,9 +38,24 @@ namespace UnittestsProjectBankATM
         {
             ArrangeBankATMAndDebitCardTestSubjects();
 
-            ActGrantAccessWithPIN(5555);
+            testSubjectATM.InsertCard("Robin Medeiros Silvério");
 
-            Assert.AreEqual(0, ActualAccountsAfterVerification.Count);
+            bool actAccess = ActGrantAccessWithPIN(5555);
+
+            Assert.AreEqual(false, actAccess);
+        }
+
+        [TestMethod]
+        [Ignore]
+        public void Should_ReturnTrue_When_OptionWithdrawalIsChosenByUser()
+        {
+            ArrangeBankATMAndDebitCardTestSubjects();
+            char expectedOption = 'W';
+            decimal amountToWithdraw = 100;
+
+            ActGrantAccessWithPIN(1234);
+            //testSubjectATM.processTransaction(100, testSubjectDebitCard);
+
         }
         
     }

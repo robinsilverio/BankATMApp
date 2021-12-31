@@ -1,10 +1,13 @@
-﻿namespace BankATMApp
+﻿using BankATMApp.EnumClass;
+
+namespace BankATMApp
 {
     public class RegularAccount : Account
     {
         private bool disallowedNegative = true;
 
-        public RegularAccount(int paramAccountNumber, string ownedBy) : base(paramAccountNumber, "REGULAR", ownedBy)
+        public RegularAccount(int paramAccountNumber, string ownedBy) : 
+            base(paramAccountNumber, Enumerations.TypesOfAccounts.REGULAR.ToString(), ownedBy)
         {
         }
 
