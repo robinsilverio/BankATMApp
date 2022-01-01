@@ -5,7 +5,6 @@
         private int id;
         private string location;
         private Bank maintainedBy;
-        private Dictionary<char, Action<decimal>> processTransactionFunctions;
         public DebitCard? obtainedDebitCard;
         public List<Transaction> transactions = new List<Transaction>();
 
@@ -14,7 +13,6 @@
             this.id = paramId;
             this.location = paramLocation;
             this.maintainedBy = paramMaintainedBy;
-            this.processTransactionFunctions = this.transactionFunctions();
         }
         public void InsertCard(string v)
         {
@@ -28,7 +26,7 @@
 
         public void ProcessTransaction(char paramOption, decimal paramAmount)
         {
-            processTransactionFunctions[paramOption](paramAmount);
+            transactionFunctions()[paramOption](paramAmount);
         }
 
         private Dictionary<char, Action<decimal>> transactionFunctions() => new Dictionary<char, Action<decimal>>()
