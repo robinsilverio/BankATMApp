@@ -1,7 +1,7 @@
 using BankATMApp;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace UnittestsProjectBankATM
+namespace BankATMApp
 {
     [TestClass]
     public class BankTests

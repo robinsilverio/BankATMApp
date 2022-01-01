@@ -14,7 +14,7 @@
             this.accountNumber = accountNumber;
         }
 
-        public abstract void Credit(int paramAmount);
-        public abstract void Debit(int paramAmount);
+        public abstract void Credit(decimal paramAmount);
+        public abstract void Debit(decimal paramAmount);
     }
 }

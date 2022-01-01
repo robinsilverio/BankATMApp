@@ -2,7 +2,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 
-namespace UnittestsProjectBankATM
+namespace BankATMApp
 {
     [TestClass]
     public class CustomerTests
@@ -30,7 +30,7 @@ namespace UnittestsProjectBankATM
             // Arrange
             ArrangeBankAndCustomer();
             // Act
-            bool actualAccess = testSubjectCustomer.Owns()[0].Access(PIN);
+            bool actualAccess = testSubjectCustomer.Owns()[0].VerifyPIN(PIN);
             // Assert
             Assert.AreEqual(true, actualAccess);
         }

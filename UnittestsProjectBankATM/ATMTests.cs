@@ -3,7 +3,7 @@ using BankATMApp;
 using System.Collections.Generic;
 using System;
 
-namespace UnittestsProjectBankATM
+namespace BankATMApp
 {
     [TestClass]
     public class ATMTests
@@ -27,7 +27,6 @@ namespace UnittestsProjectBankATM
             ArrangeBankATMAndDebitCardTestSubjects();
 
             testSubjectATM.InsertCard("Robin Medeiros Silvério");
-
             bool actAccess = ActGrantAccessWithPIN(0215);
 
             Assert.AreEqual(true, actAccess);
@@ -39,23 +38,37 @@ namespace UnittestsProjectBankATM
             ArrangeBankATMAndDebitCardTestSubjects();
 
             testSubjectATM.InsertCard("Robin Medeiros Silvério");
-
             bool actAccess = ActGrantAccessWithPIN(5555);
 
             Assert.AreEqual(false, actAccess);
         }
 
         [TestMethod]
-        [Ignore]
         public void Should_ReturnTrue_When_OptionWithdrawalIsChosenByUser()
         {
             ArrangeBankATMAndDebitCardTestSubjects();
             char expectedOption = 'W';
-            decimal amountToWithdraw = 100;
+            decimal amount = 100;
 
-            ActGrantAccessWithPIN(1234);
-            //testSubjectATM.processTransaction(100, testSubjectDebitCard);
+            testSubjectATM.InsertCard("Robin Medeiros Silvério");
+            bool actAccess = ActGrantAccessWithPIN(5555);
+            testSubjectATM.ProcessTransaction(expectedOption, amount);
+            
+            Assert.IsInstanceOfType(testSubjectATM.transactions[0], typeof(WithdrawalTransaction));
+        }
 
+        [TestMethod]
+        public void Should_ReturnTrue_When_OptionTransferIsChosenByUser()
+        {
+            ArrangeBankATMAndDebitCardTestSubjects();
+            char expectedOption = 'T';
+            decimal amount = 100;
+
+            testSubjectATM.InsertCard("Robin Medeiros Silvério");
+            bool actAccess = ActGrantAccessWithPIN(5555);
+            testSubjectATM.ProcessTransaction(expectedOption, amount);
+
+            Assert.IsInstanceOfType(testSubjectATM.transactions[0], typeof(TransferTransaction));
         }
         
     }

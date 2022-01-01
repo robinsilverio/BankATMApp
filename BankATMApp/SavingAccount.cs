@@ -9,12 +9,12 @@ namespace BankATMApp
         {
         }
 
-        public override void Credit(int paramAmount)
+        public override void Credit(decimal paramAmount)
         {
             base.Funds += paramAmount;
         }
 
-        public override void Debit(int paramAmount)
+        public override void Debit(decimal paramAmount)
         {
             base.Funds -= paramAmount;
         }
