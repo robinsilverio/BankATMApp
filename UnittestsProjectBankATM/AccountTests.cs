@@ -2,7 +2,7 @@
 using BankATMApp;
 using System;
 
-namespace BankATMApp
+namespace UnittestsProjectBankATM
 {
     [TestClass]
     public class AccountTests

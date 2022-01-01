@@ -3,7 +3,7 @@ using BankATMApp;
 using System.Collections.Generic;
 using System;
 
-namespace BankATMApp
+namespace UnittestsProjectBankATM
 {
     [TestClass]
     public class ATMTests

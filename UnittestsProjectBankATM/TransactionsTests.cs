@@ -2,7 +2,7 @@
 using BankATMApp;
 using static BankATMApp.EnumClass.Enumerations;
 
-namespace BankATMApp
+namespace UnittestsProjectBankATM
 {
     [TestClass]
     public class TransactionsTests
