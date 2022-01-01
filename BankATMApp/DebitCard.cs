@@ -30,12 +30,12 @@
 
         public void ProcessDebitTransaction(decimal paramAmount)
         {
-           this.accounts[1].Debit(paramAmount);
+            if (hasAccess) this.accounts[1].Debit(paramAmount);
         }
 
         public void ProcessCreditTransaction(decimal paramAmount)
         {
-            this.accounts[1].Credit(paramAmount);
+            if (hasAccess) this.accounts[1].Credit(paramAmount);
         }
     }
 }

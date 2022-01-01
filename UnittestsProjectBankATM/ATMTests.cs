@@ -18,6 +18,7 @@ namespace UnittestsProjectBankATM
 
         private bool ActGrantAccessWithPIN(int paramPIN)
         {
+            testSubjectATM.InsertCard("Robin Medeiros Silvério");
             return testSubjectATM.VerifyPIN(paramPIN);
         }
 
@@ -26,7 +27,6 @@ namespace UnittestsProjectBankATM
         {
             ArrangeBankATMAndDebitCardTestSubjects();
 
-            testSubjectATM.InsertCard("Robin Medeiros Silvério");
             bool actAccess = ActGrantAccessWithPIN(0215);
 
             Assert.AreEqual(true, actAccess);
@@ -37,7 +37,6 @@ namespace UnittestsProjectBankATM
         {
             ArrangeBankATMAndDebitCardTestSubjects();
 
-            testSubjectATM.InsertCard("Robin Medeiros Silvério");
             bool actAccess = ActGrantAccessWithPIN(5555);
 
             Assert.AreEqual(false, actAccess);
@@ -50,8 +49,7 @@ namespace UnittestsProjectBankATM
             char expectedOption = 'W';
             decimal amount = 100;
 
-            testSubjectATM.InsertCard("Robin Medeiros Silvério");
-            bool actAccess = ActGrantAccessWithPIN(5555);
+            bool actAccess = ActGrantAccessWithPIN(0215);
             testSubjectATM.ProcessTransaction(expectedOption, amount);
             
             Assert.IsInstanceOfType(testSubjectATM.transactions[0], typeof(WithdrawalTransaction));
@@ -64,8 +62,7 @@ namespace UnittestsProjectBankATM
             char expectedOption = 'T';
             decimal amount = 100;
 
-            testSubjectATM.InsertCard("Robin Medeiros Silvério");
-            bool actAccess = ActGrantAccessWithPIN(5555);
+            bool actAccess = ActGrantAccessWithPIN(0215);
             testSubjectATM.ProcessTransaction(expectedOption, amount);
 
             Assert.IsInstanceOfType(testSubjectATM.transactions[0], typeof(TransferTransaction));
